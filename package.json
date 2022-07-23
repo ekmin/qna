@@ -1,5 +1,5 @@
 {
-  "name": "quizie",
+  "name": "qna",
   "version": "1.0.0",
   "description": "quiz application",
   "main": "index.js",
@@ -8,12 +8,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ekmin/quizie.git"
+    "url": "git+https://github.com/ekmin/qna.git"
   },
   "author": "ekmin",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/ekmin/quizie/issues"
+    "url": "https://github.com/ekmin/qna/issues"
   },
-  "homepage": "https://github.com/ekmin/quizie#readme"
+  "homepage": "https://github.com/ekmin/qna#readme"
 }

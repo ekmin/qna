@@ -10,6 +10,7 @@ const {
   DeleteQuestion,
   AddComment,
   GetIdComment,
+  GetUserComments,
   GetQueComments,
   UpdateComment,
   DeleteComment,
@@ -25,6 +26,7 @@ quizRouter.put("/:id", auth, UpdateQuestion);
 quizRouter.delete("/:id", auth, DeleteQuestion);
 quizRouter.post("/comment/:id", auth, AddComment);
 quizRouter.get("/comment/one/:id", auth, GetIdComment);
+quizRouter.get("/comment/", auth, GetUserComments);
 quizRouter.get("/comment/:id", auth, GetQueComments);
 quizRouter.put("/comment/:id", auth, UpdateComment);
 quizRouter.delete("/comment/:id", auth, DeleteComment);

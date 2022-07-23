@@ -50,7 +50,10 @@ const GetUserQuestions = async (req, res) => {
     const getquery = "SELECT * FROM questions WHERE creator_id = ?";
     const [rows] = await db.query(getquery, [req.user.id]);
     res.json(rows);
-  } catch (err) {}
+  } catch (err) {
+    console.error(err.message);
+    return res.status(500).json({ msg: "Server error" });
+  }
 };
 
 const GetIdQuestion = async ({ params: { id } }, res) => {
@@ -148,17 +151,38 @@ const AddComment = async (req, res) => {
 };
 
 const GetIdComment = async (req, res) => {
-  const getquery = "SELECT * FROM comments WHERE com_id = ?";
-  const [comments] = await db.query(getquery, [req.params.id]);
+  try {
+    const getquery = "SELECT * FROM comments WHERE com_id = ?";
+    const [comments] = await db.query(getquery, [req.params.id]);
 
-  res.json(comments);
+    res.json(comments);
+  } catch (err) {
+    console.error(err.message);
+    return res.status(500).json({ msg: "Server error" });
+  }
+};
+
+const GetUserComments = async (req, res) => {
+  try {
+    const getquery = "SELECT * FROM comments WHERE creator_id = ?";
+    const [rows] = await db.query(getquery, [req.user.id]);
+    res.json(rows);
+  } catch (err) {
+    console.error(err.message);
+    return res.status(500).json({ msg: "Server error" });
+  }
 };
 
 const GetQueComments = async (req, res) => {
-  const getquery = "SELECT * FROM comments WHERE que_id = ?";
-  const [comments] = await db.query(getquery, [req.params.id]);
+  try {
+    const getquery = "SELECT * FROM comments WHERE que_id = ?";
+    const [comments] = await db.query(getquery, [req.params.id]);
 
-  res.json(comments);
+    res.json(comments);
+  } catch (err) {
+    console.error(err.message);
+    return res.status(500).json({ msg: "Server error" });
+  }
 };
 
 const UpdateComment = async (req, res) => {
@@ -210,6 +234,7 @@ module.exports = {
   DeleteQuestion,
   AddComment,
   GetIdComment,
+  GetUserComments,
   GetQueComments,
   UpdateComment,
   DeleteComment,

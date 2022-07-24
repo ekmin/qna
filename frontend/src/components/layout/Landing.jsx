@@ -18,7 +18,7 @@ const Landing = () => {
             <h2 className="h2">Perfect place to find answer</h2>
             <p class="lead">
               Create a QNA account and ask your questions from someone who knows
-              the answer
+              the answers
             </p>
             <Link to="/register" className="btn btn-primary btn-lg">
               REGISTER
@@ -32,7 +32,7 @@ const Landing = () => {
           </div>
         </div>
       </div>
-      <div className="container text-center mt-5">
+      <div className="container text-center mt-5" style={{marginBottom: "100px"}}>
         <h2 className="display-4">Why QNA ?</h2>
         <p className="lead">
           Why you should consider using QNA ? Seriously Why ?

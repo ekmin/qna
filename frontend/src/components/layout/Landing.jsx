@@ -11,7 +11,7 @@ const Landing = () => {
     <Fragment>
       <div class="container mt-4">
         <div class="row align-items-center">
-          <div class="col-sm">
+          <div class="col-md">
             <h1 className="display-1">
               <strong>QNA</strong>
             </h1>
@@ -27,7 +27,7 @@ const Landing = () => {
               LOGIN
             </Link>
           </div>
-          <div class="col-sm">
+          <div class="col-md">
             <img src={image} alt="Image" className="img-fluid" />
           </div>
         </div>

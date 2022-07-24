@@ -4,8 +4,8 @@ import { Link, Navigate } from "react-router-dom";
 import image from "../../assets/login.jpg";
 
 import { useDispatch, useSelector } from "react-redux";
-import { authActions } from "../../store/reducers/auth.reducers";
-import api from "../../utils/api";
+
+import { login } from "../../store/actions/auth.actions";
 
 const Login = () => {
   const isAuth = useSelector((state) => state.auth.isAuthenticated);
@@ -26,30 +26,7 @@ const Login = () => {
   const submitHandler = async (e) => {
     e.preventDefault();
 
-    const body = { email, password };
-
-    try {
-      const res = await api.post("/auth", body);
-
-      dispatch(authActions.LOGIN_SUCCESS(res.data));
-
-      try {
-        const res = await api.get("/auth");
-
-        dispatch(authActions.USER_LOADED(res.data));
-      } catch (err) {
-        console.log(err);
-        dispatch(authActions.AUTH_ERROR());
-      }
-    } catch (err) {
-      const errors = err.response.data.errors;
-
-      if (errors) {
-        errors.forEach((error) => setError(error.msg));
-      }
-
-      dispatch(authActions.LOGIN_FAIL());
-    }
+    dispatch(login(email, password));
   };
 
   if (isAuth) {

@@ -4,9 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 import image from "../../assets/computer.jpg";
 
-import { authActions } from "../../store/reducers/auth.reducers";
-import setAuthToken from "../../utils/setAuthToken";
-import api from "../../utils/api";
+import { register } from "../../store/actions/auth.actions";
 
 const Register = () => {
   const isAuth = useSelector((state) => state.auth.isAuthenticated);
@@ -32,31 +30,7 @@ const Register = () => {
     if (password !== password2) {
       setError("Passwords Do Not Match");
     } else {
-      try {
-        const res = await api.post("/register", formData);
-
-        dispatch(authActions.REGISTER_SUCCESS(res.data));
-
-        if (localStorage.token) {
-          setAuthToken(localStorage.token);
-        }
-        try {
-          const res = await api.get("/auth");
-
-          dispatch(authActions.USER_LOADED(res.data));
-        } catch (err) {
-          dispatch(authActions.AUTH_ERROR());
-        }
-      } catch (err) {
-        const errors = err.response.data.errors;
-
-        if (errors) {
-          errors.forEach((error) => setError(error.msg));
-          console.log(errors);
-        }
-
-        dispatch(authActions.AUTH_ERROR());
-      }
+      dispatch(register(formData));
     }
   }
 

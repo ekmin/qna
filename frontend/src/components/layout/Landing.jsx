@@ -9,14 +9,14 @@ import responsive from "../../assets/responsive.png";
 const Landing = () => {
   return (
     <Fragment>
-      <div class="container mt-4">
-        <div class="row align-items-center">
-          <div class="col-md">
+      <div className="container mt-4">
+        <div className="row align-items-center">
+          <div className="col-md">
             <h1 className="display-1">
               <strong>QNA</strong>
             </h1>
             <h2 className="h2">Perfect place to find answer</h2>
-            <p class="lead">
+            <p className="lead">
               Create a QNA account and ask your questions from someone who knows
               the answers
             </p>
@@ -27,18 +27,21 @@ const Landing = () => {
               LOGIN
             </Link>
           </div>
-          <div class="col-md">
+          <div className="col-md">
             <img src={image} alt="Image" className="img-fluid" />
           </div>
         </div>
       </div>
-      <div className="container text-center mt-5" style={{marginBottom: "100px"}}>
+      <div
+        className="container text-center mt-5"
+        style={{ marginBottom: "100px" }}
+      >
         <h2 className="display-4">Why QNA ?</h2>
         <p className="lead">
           Why you should consider using QNA ? Seriously Why ?
         </p>
-        <div class="row align-items-center">
-          <div class="col-sm">
+        <div className="row align-items-center">
+          <div className="col-sm">
             <h4>Easy To Use</h4>
             <img
               src={easy}
@@ -47,7 +50,7 @@ const Landing = () => {
               className="rounded img-thumbnail"
             />
           </div>
-          <div class="col-sm">
+          <div className="col-sm">
             <h4>Bette user interface</h4>
             <img
               src={userin}
@@ -56,7 +59,7 @@ const Landing = () => {
               className="rounded img-thumbnail"
             />
           </div>
-          <div class="col-sm">
+          <div className="col-sm">
             <h4>Responsive design</h4>
             <img
               src={responsive}

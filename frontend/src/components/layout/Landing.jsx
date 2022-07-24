@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import image from "../../assets/7747.jpg";
 import easy from "../../assets/easy-to-use.png";
 import userin from "../../assets/user-interface.png";
-import responsive from "../../assets/responsive.png"
+import responsive from "../../assets/responsive.png";
 
 const Landing = () => {
   return (
@@ -40,10 +40,31 @@ const Landing = () => {
         <div class="row align-items-center">
           <div class="col">
             <h4>Easy To Use</h4>
-            <img src={easy} width="200" alt="Image" className="rounded img-thumbnail" />
+            <img
+              src={easy}
+              width="200"
+              alt="Image"
+              className="rounded img-thumbnail"
+            />
           </div>
-          <div class="col"><h4>Bette user interface</h4><img src={userin} width="200" alt="Image" className="rounded img-thumbnail" /></div>
-          <div class="col"><h4>Responsive design</h4><img src={responsive} width="200" alt="Image" className="rounded img-thumbnail" /></div>
+          <div class="col">
+            <h4>Bette user interface</h4>
+            <img
+              src={userin}
+              width="200"
+              alt="Image"
+              className="rounded img-thumbnail"
+            />
+          </div>
+          <div class="col">
+            <h4>Responsive design</h4>
+            <img
+              src={responsive}
+              width="200"
+              alt="Image"
+              className="rounded img-thumbnail"
+            />
+          </div>
         </div>
       </div>
     </Fragment>

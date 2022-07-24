@@ -11,7 +11,7 @@ const Landing = () => {
     <Fragment>
       <div class="container mt-4">
         <div class="row align-items-center">
-          <div class="col">
+          <div class="col-sm">
             <h1 className="display-1">
               <strong>QNA</strong>
             </h1>
@@ -27,7 +27,7 @@ const Landing = () => {
               LOGIN
             </Link>
           </div>
-          <div class="col">
+          <div class="col-sm">
             <img src={image} alt="Image" className="img-fluid" />
           </div>
         </div>
@@ -38,7 +38,7 @@ const Landing = () => {
           Why you should consider using QNA ? Seriously Why ?
         </p>
         <div class="row align-items-center">
-          <div class="col">
+          <div class="col-sm">
             <h4>Easy To Use</h4>
             <img
               src={easy}
@@ -47,7 +47,7 @@ const Landing = () => {
               className="rounded img-thumbnail"
             />
           </div>
-          <div class="col">
+          <div class="col-sm">
             <h4>Bette user interface</h4>
             <img
               src={userin}
@@ -56,7 +56,7 @@ const Landing = () => {
               className="rounded img-thumbnail"
             />
           </div>
-          <div class="col">
+          <div class="col-sm">
             <h4>Responsive design</h4>
             <img
               src={responsive}

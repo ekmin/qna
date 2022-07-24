@@ -106,8 +106,11 @@ const DeleteQuestion = async (req, res) => {
       return res.status(401).json({ msg: "User not authorized" });
     }
 
-    const deletequery = "DELETE FROM questions WHERE que_id = ?";
-    await db.query(deletequery, [req.params.id]);
+    const deletequequery = "DELETE FROM questions WHERE que_id = ?";
+    await db.query(deletequequery, [req.params.id]);
+
+    const deletemsgquery = "DELETE FROM comments WHERE que_id = ?";
+    await db.query(deletemsgquery, [req.params.id]);
 
     res.json({ msg: "Question removed" });
   } catch (err) {

@@ -9,7 +9,7 @@ import responsive from "../../assets/responsive.png";
 const Landing = () => {
   return (
     <Fragment>
-      <div class="container">
+      <div class="container mt-4">
         <div class="row align-items-center">
           <div class="col">
             <h1 className="display-1">

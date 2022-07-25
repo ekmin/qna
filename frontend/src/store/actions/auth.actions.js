@@ -1,5 +1,6 @@
-import api from '../../utils/api';
+import api from "../../utils/api";
 import { authActions } from "../../store/reducers/auth.reducers";
+import { setAlert } from "./alert.actions";
 
 export const loadUser = () => async (dispatch) => {
   try {
@@ -23,12 +24,13 @@ export const register = (formData) => async (dispatch) => {
     }
 
     dispatch(loadUser());
+
+    dispatch(setAlert("success", "Successfully logged in"));
   } catch (err) {
     const errors = err.response.data.errors;
 
     if (errors) {
-      errors.forEach((error) => setError(error.msg));
-      console.log(errors);
+      errors.forEach((error) => dispatch(setAlert("danger", error.msg)));
     }
 
     dispatch(authActions.AUTH_ERROR());
@@ -44,13 +46,19 @@ export const login = (email, password) => async (dispatch) => {
     dispatch(authActions.LOGIN_SUCCESS(res.data));
 
     dispatch(loadUser());
+
+    dispatch(setAlert("success", "Successfully logged in"));
   } catch (err) {
     const errors = err.response.data.errors;
 
     if (errors) {
-      errors.forEach((error) => setError(error.msg));
+      errors.forEach((error) => dispatch(setAlert("danger", error.msg)));
     }
 
     dispatch(authActions.LOGIN_FAIL());
   }
+};
+
+export const logout = () => async (dispatch) => {
+  dispatch(authActions.LOGOUT());
 };

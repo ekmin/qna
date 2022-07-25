@@ -5,13 +5,13 @@ import { useDispatch, useSelector } from "react-redux";
 import image from "../../assets/computer.jpg";
 
 import { register } from "../../store/actions/auth.actions";
+import { setAlert } from "../../store/actions/alert.actions";
 
 const Register = () => {
   const isAuth = useSelector((state) => state.auth.isAuthenticated);
 
   const dispatch = useDispatch();
 
-  const [error, setError] = useState("");
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -28,7 +28,7 @@ const Register = () => {
     event.preventDefault();
 
     if (password !== password2) {
-      setError("Passwords Do Not Match");
+      dispatch(setAlert("danger", "Passwords Do Not Match"))
     } else {
       dispatch(register(formData));
     }

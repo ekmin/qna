@@ -16,9 +16,13 @@ export const loadUser = () => async (dispatch) => {
 
 export const register = (formData) => async (dispatch) => {
   try {
+    dispatch(feedbackActions.SET_LOADING());
+
     const res = await api.post("/register", formData);
 
     dispatch(authActions.REGISTER_SUCCESS(res.data));
+
+    dispatch(feedbackActions.REMOVE_LOADING());
 
     if (localStorage.token) {
       setAuthToken(localStorage.token);

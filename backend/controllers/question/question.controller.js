@@ -72,21 +72,25 @@ const GetIdQuestion = async ({ params: { id } }, res) => {
 
 const UpdateQuestion = async (req, res) => {
   try {
-    date = new Date();
-    const updatequery =
-      "UPDATE questions SET que_name= ?, description= ?, date = ?, edited = ? WHERE que_id = ?";
-    await db.query(updatequery, [
-      req.body.que_name,
-      req.body.description,
-      date,
-      true,
-      req.params.id,
-    ]);
-
     const getquery = "SELECT * FROM questions WHERE que_id = ?";
     const [question] = await db.query(getquery, [req.params.id]);
 
-    res.json(question);
+    if(question){
+      date = new Date();
+      const updatequery =
+        "UPDATE questions SET que_name= ?, description= ?, date = ?, edited = ? WHERE que_id = ?";
+      await db.query(updatequery, [
+        req.body.que_name,
+        req.body.description,
+        date,
+        true,
+        req.params.id,
+      ]);
+
+      res.json({ msg: "Question updated" });
+    }else {
+      res.json({ msg: "Question not found" });
+    }
   } catch (err) {
     console.error(err.message);
     res.status(500).send("Server Error");
@@ -130,23 +134,27 @@ const AddComment = async (req, res) => {
     const getquequery = "SELECT * FROM questions WHERE que_id = ?";
     const [question] = await db.query(getquequery, [req.params.id]);
 
-    let que_id = question.que_id;
-    let creator_id = user.id;
-    let creator_name = user.name;
-    let date = new Date();
-
-    const insertquery =
-      "INSERT INTO comments(text, que_id, creator_id, creator_name, date, edited) values (?, ?, ?, ?, ?, ?)";
-    await db.query(insertquery, [
-      text,
-      que_id,
-      creator_id,
-      creator_name,
-      date,
-      false,
-    ]);
-
-    res.status(201).json({ msg: "Comment created successfully" });
+    if(question) {
+      let que_id = question.que_id;
+      let creator_id = user.id;
+      let creator_name = user.name;
+      let date = new Date();
+  
+      const insertquery =
+        "INSERT INTO comments(text, que_id, creator_id, creator_name, date, edited) values (?, ?, ?, ?, ?, ?)";
+      await db.query(insertquery, [
+        text,
+        que_id,
+        creator_id,
+        creator_name,
+        date,
+        false,
+      ]);
+  
+      res.status(201).json({ msg: "Comment created successfully" });
+    } else {
+      res.json({ msg: "Question not found" });
+    }
   } catch (err) {
     console.error(err.message);
     res.status(500).send("Server Error");
@@ -156,9 +164,12 @@ const AddComment = async (req, res) => {
 const GetIdComment = async (req, res) => {
   try {
     const getquery = "SELECT * FROM comments WHERE com_id = ?";
-    const [comments] = await db.query(getquery, [req.params.id]);
+    const [comment] = await db.query(getquery, [req.params.id]);
 
-    res.json(comments);
+    if(!comment) {
+      res.json({ msg: "Comment not found" });
+    }
+    res.json(comment);
   } catch (err) {
     console.error(err.message);
     return res.status(500).json({ msg: "Server error" });
@@ -169,6 +180,9 @@ const GetUserComments = async (req, res) => {
   try {
     const getquery = "SELECT * FROM comments WHERE creator_id = ?";
     const [rows] = await db.query(getquery, [req.user.id]);
+    if(!rows){
+      res.json({ msg: "No comments found" });
+    }
     res.json(rows);
   } catch (err) {
     console.error(err.message);
@@ -181,6 +195,9 @@ const GetQueComments = async (req, res) => {
     const getquery = "SELECT * FROM comments WHERE que_id = ?";
     const [comments] = await db.query(getquery, [req.params.id]);
 
+    if(!comments) {
+      res.json({ msg: "No comments found" });
+    }
     res.json(comments);
   } catch (err) {
     console.error(err.message);
@@ -190,15 +207,19 @@ const GetQueComments = async (req, res) => {
 
 const UpdateComment = async (req, res) => {
   try {
-    date = new Date();
-    const updatequery =
-      "UPDATE comments SET text= ?, date = ?, edited = ? WHERE com_id = ?";
-    await db.query(updatequery, [req.body.text, date, true, req.params.id]);
-
     const getquery = "SELECT * FROM comments WHERE com_id = ?";
-    const [comments] = await db.query(getquery, [req.params.id]);
+    const [comment] = await db.query(getquery, [req.params.id]);
 
-    res.json(comments);
+    if(!comment) {
+      res.json({ msg: "Comment not found" });
+    } else {
+      date = new Date();
+      const updatequery =
+        "UPDATE comments SET text= ?, date = ?, edited = ? WHERE com_id = ?";
+      await db.query(updatequery, [req.body.text, date, true, req.params.id]);
+
+      res.json({ msg: "Comment updated" });
+    }
   } catch (err) {
     console.error(err.message);
     res.status(500).send("Server Error");

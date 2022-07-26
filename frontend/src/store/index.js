@@ -1,12 +1,12 @@
 import { configureStore } from "@reduxjs/toolkit";
 
 import setAuthToken from '../utils/setAuthToken';
-import alertReducer from "./reducers/alert.reducers";
+import feedbackReducer from "./reducers/feedback.reducers";
 
 import authReducer from './reducers/auth.reducers';
 
 const store = configureStore({
-  reducer: { auth: authReducer, alert: alertReducer }
+  reducer: { auth: authReducer, feedback: feedbackReducer }
 });
 
 let currentState = store.getState();

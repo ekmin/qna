@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import image from "../../assets/computer.jpg";
 
 import { register } from "../../store/actions/auth.actions";
-import { setAlert } from "../../store/actions/alert.actions";
+import { setAlert } from "../../store/actions/feedback.actions";
 
 const Register = () => {
   const isAuth = useSelector((state) => state.auth.isAuthenticated);

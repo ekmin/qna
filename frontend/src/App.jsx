@@ -9,12 +9,13 @@ import Register from "./components/auth/Register";
 import Login from "./components/auth/Login";
 
 import Alert from "./components/layout/Alert";
+import Spinner from "./components/layout/Spinner";
 
 import setAuthToken from "./utils/setAuthToken";
 import { loadUser } from "./store/actions/auth.actions";
 
 function App() {
-  const alert = useSelector((state) => state.alert.alert);
+  const feedback = useSelector((state) => state.feedback);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -30,7 +31,8 @@ function App() {
 
   return (
     <Router>
-      {alert?.message && <Alert message={alert.message} type={alert.type} />}
+    {feedback.loading && <Spinner />}
+      {feedback.alert?.message && <Alert message={feedback.alert.message} type={feedback.alert.type} />}
       <Navbar />
       <Routes>
         <Route path="/" element={<Landing />} />

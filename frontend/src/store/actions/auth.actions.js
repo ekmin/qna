@@ -1,6 +1,7 @@
 import api from "../../utils/api";
 import { authActions } from "../../store/reducers/auth.reducers";
-import { setAlert } from "./alert.actions";
+import { feedbackActions } from "../reducers/feedback.reducers";
+import { setAlert } from "./feedback.actions";
 
 export const loadUser = () => async (dispatch) => {
   try {
@@ -41,9 +42,13 @@ export const login = (email, password) => async (dispatch) => {
   const body = { email, password };
 
   try {
+    dispatch(feedbackActions.SET_LOADING());
+    
     const res = await api.post("/auth", body);
 
     dispatch(authActions.LOGIN_SUCCESS(res.data));
+
+    dispatch(feedbackActions.REMOVE_LOADING());
 
     dispatch(loadUser());
 

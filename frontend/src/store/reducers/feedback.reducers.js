@@ -1,12 +1,13 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialAlertState = {
+const initialFeedbackState = {
   alert: null,
+  loading: false
 };
 
-const alertSlice = createSlice({
-  name: "alert",
-  initialState: initialAlertState,
+const feedbackSlice = createSlice({
+  name: "feedback",
+  initialState: initialFeedbackState,
   reducers: {
     SET_ALERT(state, action) {
       return {
@@ -24,9 +25,19 @@ const alertSlice = createSlice({
         },
       };
     },
+    SET_LOADING(state) {
+      return {
+        loading: true,
+      }
+    },
+    REMOVE_LOADING(state) {
+      return {
+        loading: false,
+      }
+    }
   },
 });
 
-export const alertActions = alertSlice.actions;
+export const feedbackActions = feedbackSlice.actions;
 
-export default alertSlice.reducer;
+export default feedbackSlice.reducer;

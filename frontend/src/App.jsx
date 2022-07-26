@@ -31,8 +31,8 @@ function App() {
 
   return (
     <Router>
-    {feedback.loading && <Spinner />}
-      {feedback.alert?.message && <Alert message={feedback.alert.message} type={feedback.alert.type} />}
+      {feedback.loading && <Spinner />}
+      {feedback.alert?.message && <Alert alert={feedback.alert} />}
       <Navbar />
       <Routes>
         <Route path="/" element={<Landing />} />

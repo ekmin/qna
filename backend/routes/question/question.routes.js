@@ -20,15 +20,15 @@ const {
 const quizRouter = express.Router();
 
 quizRouter.post("/", [auth, validateQuestion], createQuestion);
-quizRouter.get("/", auth, getQuestions);
+quizRouter.get("/", getQuestions);
 quizRouter.get("/user", auth, GetUserQuestions);
-quizRouter.get("/:id", auth, GetIdQuestion);
+quizRouter.get("/:id", GetIdQuestion);
 quizRouter.put("/:id", auth, UpdateQuestion);
 quizRouter.delete("/:id", auth, DeleteQuestion);
 quizRouter.post("/comment/:id", [auth, validateComment], AddComment);
 quizRouter.get("/comment/one/:id", auth, GetIdComment);
 quizRouter.get("/comment/", auth, GetUserComments);
-quizRouter.get("/comment/:id", auth, GetQueComments);
+quizRouter.get("/comment/:id", GetQueComments);
 quizRouter.put("/comment/:id", [auth, validateComment], UpdateComment);
 quizRouter.delete("/comment/:id", auth, DeleteComment);
 

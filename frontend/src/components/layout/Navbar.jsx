@@ -14,6 +14,11 @@ const Navbar = () => {
   const guestLinks = (
     <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
       <li className="nav-item">
+        <Link className="nav-link" to="/questions">
+          Questions
+        </Link>
+      </li>
+      <li className="nav-item">
         <Link className="nav-link" to="/register">
           Register
         </Link>
@@ -29,13 +34,23 @@ const Navbar = () => {
   const authLinks = (
     <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
       <li className="nav-item">
-        <Link className="nav-link" to="/register">
-          Register
+        <Link className="nav-link" to="/questions">
+          Questions
         </Link>
       </li>
       <li className="nav-item">
-        <Link className="nav-link" to="/login">
-          Login
+        <Link className="nav-link" to="/ask">
+          Ask
+        </Link>
+      </li>
+      <li className="nav-item">
+        <Link className="nav-link" to="/your-questions">
+          Your Questions
+        </Link>
+      </li>
+      <li className="nav-item">
+        <Link className="nav-link" to="/your-answeres">
+          Your Answeres
         </Link>
       </li>
       <li className="nav-item">

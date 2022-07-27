@@ -7,6 +7,7 @@ import Navbar from "./components/layout/Navbar";
 import Footer from "./components/layout/Footer";
 import Register from "./components/auth/Register";
 import Login from "./components/auth/Login";
+import ListQuestions from "./components/questions/ListQuestions";
 
 import Alert from "./components/layout/Alert";
 import Spinner from "./components/layout/Spinner";
@@ -38,6 +39,7 @@ function App() {
         <Route path="/" element={<Landing />} />
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/questions" element={<ListQuestions />} />
       </Routes>
       <Footer />
     </Router>

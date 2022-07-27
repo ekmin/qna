@@ -1,12 +1,17 @@
 import React, { Fragment } from "react";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 import image from "../../assets/7747.jpg";
 import easy from "../../assets/easy-to-use.png";
 import userin from "../../assets/user-interface.png";
 import responsive from "../../assets/responsive.png";
+import { login } from "../../store/actions/auth.actions";
 
 const Landing = () => {
+  const isAuth = useSelector((state) => state.auth.isAuthenticated);
+  const user = useSelector((state) => state.auth?.user?.name);
+  
   return (
     <Fragment>
       <div className="container mt-4">
@@ -17,15 +22,19 @@ const Landing = () => {
             </h1>
             <h2 className="h2">Perfect place to find answer</h2>
             <p className="lead">
-              Create a QNA account and ask your questions from someone who knows
-              the answers
+              {!isAuth ? "Create a QNA account and ask your questions from someone who knows the answers" : `Welcome Back, ${user}`}
             </p>
-            <Link to="/register" className="btn btn-primary btn-lg">
+            {!isAuth ? <div><Link to="/register" className="btn btn-primary btn-lg">
               REGISTER
             </Link>{" "}
             <Link to="/login" className="btn btn-dark btn-lg">
               LOGIN
-            </Link>
+            </Link></div> : <div><Link to="/questions" className="btn btn-primary btn-lg">
+              Questions
+            </Link>{" "}
+            <Link to="/ask" className="btn btn-dark btn-lg">
+              Ask
+            </Link></div>}
           </div>
           <div className="col-md">
             <img src={image} alt="Image" className="img-fluid" />

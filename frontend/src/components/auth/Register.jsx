@@ -32,6 +32,12 @@ const Register = () => {
     } else {
       dispatch(register(formData));
     }
+    setFormData({
+      name: "",
+      email: "",
+      password: "",
+      password2: "",
+    })
   }
 
   if (isAuth) {

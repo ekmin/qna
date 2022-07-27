@@ -28,7 +28,7 @@ const Register = () => {
     event.preventDefault();
 
     if (password !== password2) {
-      dispatch(setAlert("danger", "Passwords Do Not Match"))
+      dispatch(setAlert("danger", "Passwords Do Not Match"));
     } else {
       dispatch(register(formData));
     }
@@ -37,7 +37,7 @@ const Register = () => {
       email: "",
       password: "",
       password2: "",
-    })
+    });
   }
 
   if (isAuth) {

@@ -30,7 +30,7 @@ const Login = () => {
     setFormData({
       email: "",
       password: "",
-    })
+    });
   };
 
   if (isAuth) {

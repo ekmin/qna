@@ -37,7 +37,7 @@ const createQuestion = async (req, res) => {
 const getQuestions = async (req, res) => {
   try {
     const getquery = "SELECT * FROM questions";
-    const [rows] = await db.query(getquery);
+    const rows = await db.query(getquery);
     res.json(rows);
   } catch (err) {
     console.error(err.message);
@@ -48,7 +48,7 @@ const getQuestions = async (req, res) => {
 const GetUserQuestions = async (req, res) => {
   try {
     const getquery = "SELECT * FROM questions WHERE creator_id = ?";
-    const [rows] = await db.query(getquery, [req.user.id]);
+    const rows = await db.query(getquery, [req.user.id]);
     res.json(rows);
   } catch (err) {
     console.error(err.message);
@@ -179,7 +179,7 @@ const GetIdComment = async (req, res) => {
 const GetUserComments = async (req, res) => {
   try {
     const getquery = "SELECT * FROM comments WHERE creator_id = ?";
-    const [rows] = await db.query(getquery, [req.user.id]);
+    const rows = await db.query(getquery, [req.user.id]);
     if(!rows){
       res.json({ msg: "No comments found" });
     }
@@ -193,7 +193,7 @@ const GetUserComments = async (req, res) => {
 const GetQueComments = async (req, res) => {
   try {
     const getquery = "SELECT * FROM comments WHERE que_id = ?";
-    const [comments] = await db.query(getquery, [req.params.id]);
+    const comments = await db.query(getquery, [req.params.id]);
 
     if(!comments) {
       res.json({ msg: "No comments found" });

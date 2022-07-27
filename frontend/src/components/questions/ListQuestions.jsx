@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import api from "../../utils/api";
 import { feedbackActions } from "../../store/reducers/feedback.reducers";
@@ -54,15 +54,10 @@ const ListQuestions = () => {
   ));
 
   return (
-    <section className="container">
-      <Fragment>
+    <div className="container">
         <h1 className="text-dark">Questions</h1>
-        <div>
-          {/* {listItem.length === 0 ? <h3>No Questions Found...</h3> : listItem} */}
           {listItem}
-        </div>
-      </Fragment>
-    </section>
+    </div>
   );
 };
 

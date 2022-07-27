@@ -6,7 +6,7 @@ import { feedbackActions } from "../../store/reducers/feedback.reducers";
 import ListItem from "./ListItem";
 
 const ListQuestions = () => {
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
   const [questions, setQuestions] = useState([]);
 
   useEffect(() => {
@@ -55,8 +55,8 @@ const ListQuestions = () => {
 
   return (
     <div className="container">
-        <h1 className="text-dark">Questions</h1>
-        {listItem}
+      <h1 className="text-dark">Questions</h1>
+      {listItem}
     </div>
   );
 };

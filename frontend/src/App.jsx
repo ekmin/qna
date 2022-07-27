@@ -8,6 +8,8 @@ import Footer from "./components/layout/Footer";
 import Register from "./components/auth/Register";
 import Login from "./components/auth/Login";
 import ListQuestions from "./components/questions/ListQuestions";
+import PrivateRoute from "./components/routing/PrivateRoute";
+import CreateQuestion from "./components/questions/CreateQuestion";
 
 import Alert from "./components/layout/Alert";
 import Spinner from "./components/layout/Spinner";
@@ -40,6 +42,10 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
         <Route path="/questions" element={<ListQuestions />} />
+        <Route
+          path="/ask"
+          element={<PrivateRoute component={<CreateQuestion />} />}
+        />
       </Routes>
       <Footer />
     </Router>

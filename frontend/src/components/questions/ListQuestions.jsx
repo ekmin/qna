@@ -17,7 +17,6 @@ const ListQuestions = () => {
       const responseData = await res.data;
 
       const loadedQuestions = [];
-      console.log(responseData);
 
       for (const key in responseData) {
         loadedQuestions.push({

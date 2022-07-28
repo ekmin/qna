@@ -24,7 +24,6 @@ const ListQuestions = () => {
           que_id: responseData[key].que_id,
           que_name: responseData[key].que_name,
           description: responseData[key].description,
-          creator_id: responseData[key].creator_id,
           creator_name: responseData[key].creator_name,
           date: responseData[key].date,
           edited: responseData[key].edited,
@@ -45,7 +44,6 @@ const ListQuestions = () => {
       id={question.que_id}
       que_name={question.que_name}
       description={question.description}
-      creator_id={question.creator_id}
       creator_name={question.creator_name}
       date={question.date}
       edited={question.edited}

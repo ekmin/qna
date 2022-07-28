@@ -10,6 +10,7 @@ import Login from "./components/auth/Login";
 import ListQuestions from "./components/questions/ListQuestions";
 import PrivateRoute from "./components/routing/PrivateRoute";
 import CreateQuestion from "./components/questions/CreateQuestion";
+import Question from "./components/questions/Question";
 
 import Alert from "./components/layout/Alert";
 import Spinner from "./components/layout/Spinner";
@@ -42,6 +43,7 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
         <Route path="/questions" element={<ListQuestions />} />
+        <Route path="/question/:id" element={<Question />} />
         <Route
           path="/ask"
           element={<PrivateRoute component={<CreateQuestion />} />}

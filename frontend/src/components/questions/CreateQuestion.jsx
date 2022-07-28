@@ -1,5 +1,4 @@
 import React, {useState} from "react";
-import { Navigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 
 import image from "../../assets/41Z_2106.w009.n001.5B.p8.5.jpg";

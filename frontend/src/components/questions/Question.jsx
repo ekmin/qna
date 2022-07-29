@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import api from "../../utils/api";
 import { feedbackActions } from "../../store/reducers/feedback.reducers";
@@ -86,8 +86,6 @@ const Question = () => {
       }
     }
   };
-
-  console.log(answers);
 
   return (
     <div className="container">

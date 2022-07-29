@@ -49,7 +49,7 @@ function CreateQuestion() {
     <div className="container mt-4">
       <div className="row align-items-center">
         <div className="col-md">
-          <h1 className="h1 mb-3">Your Question</h1>
+          <h1 className="h1 mb-3 display-5">Your Question</h1>
           <form onSubmit={submitHandler}>
             <div className="form-floating mb-3">
               <input

@@ -10,15 +10,15 @@ const ListItem = (props) => {
             {props.que_name}
           </Link>
         </h5>
-        <div class="row">
-          <div class="col-sm">
+        <div className="row">
+          <div className="col-sm">
             <p>
               {props.edited
                 ? `Last edited on ${props.date}`
                 : `Created on ${props.date}`}
             </p>
           </div>
-          <div class="col">
+          <div className="col">
             <footer className="blockquote-footer">{props.creator_name}</footer>
           </div>
         </div>

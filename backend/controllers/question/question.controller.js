@@ -136,15 +136,17 @@ const AddComment = async (req, res) => {
 
     if(question) {
       let que_id = question.que_id;
+      let que_name = question.que_name;
       let creator_id = user.id;
       let creator_name = user.name;
       let date = new Date();
   
       const insertquery =
-        "INSERT INTO comments(text, que_id, creator_id, creator_name, date, edited) values (?, ?, ?, ?, ?, ?)";
+        "INSERT INTO comments(text, que_id, que_name, creator_id, creator_name, date, edited) values (?, ?, ?, ?, ?, ?, ?)";
       await db.query(insertquery, [
         text,
         que_id,
+        que_name,
         creator_id,
         creator_name,
         date,

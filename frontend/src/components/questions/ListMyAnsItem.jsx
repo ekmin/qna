@@ -34,7 +34,7 @@ const ListMyQueItem = (props) => {
             <h5>Question:</h5>
               <h5 className="card-title">
                 <Link
-                  to={`/question/${props.id}`}
+                  to={`/question/${props.que_id}`}
                   className="text-decoration-none"
                 >
                   {props.que_name}

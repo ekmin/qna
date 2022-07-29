@@ -5,7 +5,7 @@ function Footer() {
     <footer className="footer bg-dark bg-opacity-75 w-100 py-3  bottom-0 start-50 translate-middle-x fixed-bottom">
       <div className="container text-center">
         <span className="lead text-light">
-          Made For Hashnode PlanetScale Hackathon
+          Made For PlanetScale X Hashnode Hackathon
         </span>
       </div>
     </footer>

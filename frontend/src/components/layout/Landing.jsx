@@ -20,7 +20,7 @@ const Landing = () => {
             <h1 className="display-1">
               <strong>QNA</strong>
             </h1>
-            <h2 className="h2">Perfect place to find answer</h2>
+            <h2 className="h2">Perfect place to find answers</h2>
             <p className="lead">
               {!isAuth ? "Create a QNA account and ask your questions from someone who knows the answers" : `Welcome Back, ${user}`}
             </p>

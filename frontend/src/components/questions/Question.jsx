@@ -90,7 +90,7 @@ const Question = () => {
 
   return (
     <div className="container">
-      <h1 className="large text-primary">Question</h1>
+      <h1 className="large text-primary display-5">Question</h1>
       <div className="card mb-3">
         <div className="card-body">
           <h5 className="card-title">{que_name}</h5>

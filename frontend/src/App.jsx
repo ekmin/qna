@@ -11,6 +11,8 @@ import ListQuestions from "./components/questions/ListQuestions";
 import PrivateRoute from "./components/routing/PrivateRoute";
 import CreateQuestion from "./components/questions/CreateQuestion";
 import Question from "./components/questions/Question";
+import MyQuestions from "./components/questions/MyQuestions";
+import MyAnswers from "./components/questions/MyAnswers";
 
 import Alert from "./components/layout/Alert";
 import Spinner from "./components/layout/Spinner";
@@ -47,6 +49,14 @@ function App() {
         <Route
           path="/ask"
           element={<PrivateRoute component={<CreateQuestion />} />}
+        />
+        <Route
+          path="/my-questions"
+          element={<PrivateRoute component={<MyQuestions />} />}
+        />
+        <Route
+          path="/my-answers"
+          element={<PrivateRoute component={<MyAnswers />} />}
         />
       </Routes>
       <Footer />

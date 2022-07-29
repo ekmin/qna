@@ -18,12 +18,7 @@ const Question = () => {
     date: "",
     edited: "",
   });
-  const [answers, setAnswers] = useState({
-      ans_text: "",
-      ans_creator_name: "",
-      ans_date: "",
-      ans_edited: ""
-  });
+  const [answers, setAnswers] = useState([]);
 
   const [text, setText] = useState("");
 
@@ -34,13 +29,6 @@ const Question = () => {
     date,
     edited,
   } = question;
-
-  const {
-    ans_text,
-    ans_creator_name,
-    ans_date,
-    ans_edited
-  } = answers;
 
   const id = useParams();
 
@@ -75,6 +63,7 @@ const Question = () => {
       dispatch(feedbackActions.SET_LOADING());
       await api.post(`question/comment/one/${id.id}`, {text});
 
+      dispatch(feedbackActions.REMOVE_LOADING());
       setSubmit(true);
       dispatch(setAlert("success", "Answer posted successfully"));
       setText("");
@@ -106,6 +95,16 @@ const Question = () => {
       <div className="card mb-3">
         <div className="card-body">
           <h5 className="card-title">Answers</h5>
+          {answers.map(item => (
+            <div>
+            <hr />
+            <h5>{item.creator_name} :</h5>
+            <p>{item.text}</p>
+            <p className="blockquote-footer">{edited
+                ? `Last edited on ${date}`
+                : `Posted on ${date}`}</p>
+            </div>
+          ))}
         </div>
       </div>
       <div className="card mb-3">
@@ -125,7 +124,7 @@ const Question = () => {
               <label htmlFor="floatingTextarea">Answer</label>
             </div>
             <button type="submit" className="btn btn-primary btn-lg mt-3">Submit</button>
-          </form> : <p>You should <Link to="login">login</Link> before answering</p>}
+          </form> : <p>You should <Link to="/login">login</Link> before answering</p>}
         </div>
       </div>
     </div>

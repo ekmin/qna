@@ -10,7 +10,7 @@ const Question = () => {
 
   const isAuth = useSelector(state => state.auth.isAuthenticated);
 
-  const [submit, setSubmit] = useState("");
+  const [submit, setSubmit] = useState(false);
   const [question, setQuestion] = useState({
     que_name: "",
     description: "",
@@ -75,7 +75,7 @@ const Question = () => {
       dispatch(feedbackActions.SET_LOADING());
       await api.post(`question/comment/one/${id.id}`, {text});
 
-      setSubmit("posted");
+      setSubmit(true);
       dispatch(setAlert("success", "Answer posted successfully"));
     } catch (err) {
       const errors = err.response.data.errors;

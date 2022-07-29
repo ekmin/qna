@@ -31,6 +31,7 @@ const ListMyQueItem = (props) => {
         <div className="container">
           <div className="row">
             <div className="col-10">
+            <h5>Question:</h5>
               <h5 className="card-title">
                 <Link
                   to={`/question/${props.id}`}
@@ -39,6 +40,7 @@ const ListMyQueItem = (props) => {
                   {props.que_name}
                 </Link>
               </h5>
+              <h5>Your Answer:</h5>
               <p>{props.text}</p>
               <p>
                 {props.edited

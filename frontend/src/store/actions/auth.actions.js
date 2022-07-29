@@ -30,7 +30,7 @@ export const register = (formData) => async (dispatch) => {
 
     dispatch(loadUser());
 
-    dispatch(setAlert("success", "Successfully logged in"));
+    dispatch(setAlert("success", "Successfully registered"));
   } catch (err) {
     const errors = err.response.data.errors;
 

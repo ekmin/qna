@@ -77,6 +77,7 @@ const Question = () => {
 
       setSubmit(true);
       dispatch(setAlert("success", "Answer posted successfully"));
+      setText("");
     } catch (err) {
       const errors = err.response.data.errors;
 

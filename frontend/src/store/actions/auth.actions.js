@@ -72,4 +72,5 @@ export const login = (email, password) => async (dispatch) => {
 
 export const logout = () => async (dispatch) => {
   dispatch(authActions.LOGOUT());
+  dispatch(setAlert("success", "Successfully logged out"));
 };

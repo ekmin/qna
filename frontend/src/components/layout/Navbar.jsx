@@ -44,13 +44,13 @@ const Navbar = () => {
         </Link>
       </li>
       <li className="nav-item">
-        <Link className="nav-link" to="/your-questions">
-          Your Questions
+        <Link className="nav-link" to="/my-questions">
+          My Questions
         </Link>
       </li>
       <li className="nav-item">
-        <Link className="nav-link" to="/your-answers">
-          Your Answers
+        <Link className="nav-link" to="/my-answers">
+          My Answers
         </Link>
       </li>
       <li className="nav-item">

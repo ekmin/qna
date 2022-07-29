@@ -52,8 +52,8 @@ const ListQuestions = () => {
 
   return (
     <div className="container">
-      <h1 className="text-dark">Questions</h1>
-      {listItem}
+      <h1 className="text-dark display-5">Questions</h1>
+      {listItem.length === 0 ? <h2 className="text-primary">No Questions Found...</h2> : listItem}
     </div>
   );
 };

@@ -27,11 +27,13 @@ const feedbackSlice = createSlice({
     },
     SET_LOADING(state) {
       return {
+        ...state,
         loading: true,
       }
     },
     REMOVE_LOADING(state) {
       return {
+        ...state,
         loading: false,
       }
     }

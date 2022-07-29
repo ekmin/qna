@@ -22,7 +22,7 @@ const ListMyQueItem = (props) => {
   };
 
   if (deleted) {
-    return <Navigate to="/" />;
+    return <Navigate to="/questions" />;
   }
 
   return (

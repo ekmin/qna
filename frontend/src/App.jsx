@@ -13,6 +13,8 @@ import CreateQuestion from "./components/questions/CreateQuestion";
 import Question from "./components/questions/Question";
 import MyQuestions from "./components/questions/MyQuestions";
 import MyAnswers from "./components/questions/MyAnswers";
+import EditQuestion from "./components/questions/EditQuestion";
+import EditAnswer from "./components/questions/EditAnswer";
 
 import Alert from "./components/layout/Alert";
 import Spinner from "./components/layout/Spinner";
@@ -57,6 +59,14 @@ function App() {
         <Route
           path="/my-answers"
           element={<PrivateRoute component={<MyAnswers />} />}
+        />
+        <Route
+          path="/edit-question/:id"
+          element={<PrivateRoute component={<EditQuestion />} />}
+        />
+        <Route
+          path="/edit-answer/:id"
+          element={<PrivateRoute component={<EditAnswer />} />}
         />
       </Routes>
       <Footer />

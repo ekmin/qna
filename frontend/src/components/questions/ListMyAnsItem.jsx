@@ -45,7 +45,7 @@ const ListMyQueItem = (props) => {
               <p>
                 {props.edited
                   ? `Last edited on ${props.date}`
-                  : `Created on ${props.date}`}
+                  : `Posted on ${props.date}`}
               </p>
             </div>
             <div className="col">

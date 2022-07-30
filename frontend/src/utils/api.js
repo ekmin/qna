@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { authActions } from "../store/reducers/auth.reducers";
 
 const api = axios.create({
-  baseURL: "http://localhost:8000/",
+  baseURL: import.meta.env.VITE_API_URL,
 });
 
 api.interceptors.response.use(

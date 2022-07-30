@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link, Navigate } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 
 import image from "../../assets/computer.jpg";
 
@@ -8,8 +8,6 @@ import { register } from "../../store/actions/auth.actions";
 import { setAlert } from "../../store/actions/feedback.actions";
 
 const Register = () => {
-  const isAuth = useSelector((state) => state.auth.isAuthenticated);
-
   const dispatch = useDispatch();
 
   const [formData, setFormData] = useState({
@@ -38,10 +36,6 @@ const Register = () => {
       password: "",
       password2: "",
     });
-  }
-
-  if (isAuth) {
-    return <Navigate to="/login" />;
   }
 
   return (

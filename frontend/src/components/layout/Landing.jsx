@@ -60,7 +60,7 @@ const Landing = () => {
             />
           </div>
           <div className="col-sm">
-            <h4>Bette user interface</h4>
+            <h4>Simple user interface</h4>
             <img
               src={userin}
               width="200"

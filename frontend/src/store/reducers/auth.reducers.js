@@ -23,7 +23,7 @@ const authSlice = createSlice({
       return {
         ...state,
         ...action.payload,
-        isAuthenticated: true,
+        isAuthenticated: false,
         loading: false,
       };
     },

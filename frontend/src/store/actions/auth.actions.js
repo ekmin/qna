@@ -24,13 +24,7 @@ export const register = (formData) => async (dispatch) => {
 
     dispatch(feedbackActions.REMOVE_LOADING());
 
-    if (localStorage.token) {
-      setAuthToken(localStorage.token);
-    }
-
-    dispatch(loadUser());
-
-    dispatch(setAlert("success", "Successfully registered"));
+    dispatch(setAlert("success", "Successfully registered, Try login now"));
   } catch (err) {
     const errors = err.response.data.errors;
 

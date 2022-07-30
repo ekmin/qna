@@ -95,7 +95,7 @@ const Question = () => {
       <div className="card mb-3">
         <div className="card-body">
           <h5 className="card-title">Answers</h5>
-          {answers.map(item => (
+          {answers.length == 0 ? <p className="text-primary">No answers found...</p> : answers.map(item => (
             <div>
             <hr />
             <h5>{item.creator_name} :</h5>

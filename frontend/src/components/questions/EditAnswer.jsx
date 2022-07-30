@@ -65,7 +65,7 @@ function EditAnswer() {
         <div className="card-body">
           <form onSubmit={submitHandler}>
             <div className="form-floating mb-3">
-              <input
+              <textarea
                 name="text"
                 value={text}
                 onChange={onChange}
@@ -73,6 +73,7 @@ function EditAnswer() {
                 className="form-control"
                 id="floatingInput"
                 placeholder="question heading"
+                style={{ height: "200px" }}
               />
               <label htmlFor="floatingInput">Answer</label>
             </div>

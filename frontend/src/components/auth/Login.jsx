@@ -27,10 +27,6 @@ const Login = () => {
     e.preventDefault();
 
     dispatch(login(email, password));
-    setFormData({
-      email: "",
-      password: "",
-    });
   };
 
   if (isAuth) {

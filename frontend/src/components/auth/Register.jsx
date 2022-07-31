@@ -29,13 +29,14 @@ const Register = () => {
       dispatch(setAlert("danger", "Passwords Do Not Match"));
     } else {
       dispatch(register(formData));
+
+      setFormData({
+        name: "",
+        email: "",
+        password: "",
+        password2: "",
+      });
     }
-    setFormData({
-      name: "",
-      email: "",
-      password: "",
-      password2: "",
-    });
   }
 
   return (

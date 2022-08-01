@@ -14,4 +14,8 @@ QNA is an Question and Answer app that made for the Hashnode X PlanetScale Hacka
 - PlanetScale
 - Redux
 
-Become A Free Person With QNA !!
+## License
+
+The software is published under the MIT License.
+
+_Become A Free Person With QNA !!_

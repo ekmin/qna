@@ -43,7 +43,7 @@ const Landing = () => {
       </div>
       <div
         className="container text-center"
-        style={{ marginBottom: "100px", marginTop: "150px" }}
+        style={{ marginBottom: "50px", marginTop: "150px" }}
       >
         <h2 className="display-4">Why QNA ?</h2>
         <p className="lead">
